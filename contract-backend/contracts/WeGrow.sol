@@ -1,6 +1,8 @@
 pragma solidity >=0.4.21 <0.6.0;
 
-contract WeGrow {
+import "./Ownable.sol";
+
+contract WeGrow is Ownable {
 
     //
     // State variables
