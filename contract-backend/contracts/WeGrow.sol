@@ -25,7 +25,9 @@ contract WeGrow is Ownable {
 
     uint public itemCount;
     mapping (uint => Item) public itemList;
+    mapping (uint => Grower) public GrowerList;
     mapping (address => string) public location;
+
 
     //
     // Events - publicize actions to external listeners
@@ -42,6 +44,16 @@ contract WeGrow is Ownable {
     //
     // General Functions
     //
+
+    function addItem(){}
+
+    function addGrower(string memory _name, string memory _location)
+    public
+    {
+        name = _name;
+        location = _location;
+        account = message.sender;
+    }
 
     //
     // View Functions
