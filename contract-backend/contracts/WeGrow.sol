@@ -21,8 +21,8 @@ contract WeGrow {
     } 
 
     uint public itemCount;
-    mapping (uint => Item) public itemList;
-    mapping (address => Grower) public growerList;
+    mapping (uint => Item) itemList;
+    mapping (address => Grower) growerList;
 
 
 
@@ -49,7 +49,7 @@ contract WeGrow {
         onlyGrower()
     {
         itemList[itemCount] = Item({name: _name, location: growerList[msg.sender].location, owner: msg.sender, price: _price, forSale: true});
-
+        itemCount += 1;
     }
 
     function addGrower(string memory _name, string memory _location)
