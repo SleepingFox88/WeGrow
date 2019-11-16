@@ -52,7 +52,7 @@ contract WeGrow is Ownable {
     {
         name = _name;
         location = _location;
-        account = message.sender;
+        account = msg.sender;
     }
 
     //
