@@ -1,8 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./Ownable.sol";
-
-contract WeGrow is Ownable {
+contract WeGrow {
 
     //
     // State variables
@@ -81,7 +79,7 @@ contract WeGrow is Ownable {
     function getItem(uint index)
         public
         view
-        
+
         // these are the properties of "Item" type that need to be returned
         // string name;
         // string location;
