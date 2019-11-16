@@ -35,6 +35,7 @@ contract WeGrow is Ownable {
     // 
     // Modifiers
     // 
+
     modifier onlyGrower{require(growerList[msg.sender].account == msg.sender, "Grower is not registered"); _;}
 
     //
@@ -46,20 +47,30 @@ contract WeGrow is Ownable {
     //
 
     function addItem(string memory _name, uint _price)
-    public
-    onlyGrower()
+        public
+        onlyGrower()
     {
         itemList[itemCount] = Item({name: _name, location: growerList[msg.sender].location, owner: msg.sender, price: _price, forSale: true});
 
     }
 
-    function addGrower(string memory _name, string memory _location) public {
+    function addGrower(string memory _name, string memory _location)
+        public
+    {
         growerList[msg.sender] = Grower({name: _name, location: _location, account: msg.sender});
     }
 
     //
     // View Functions
     //
+
+    function listAllOffers()
+        public
+        view
+        returns(mapping)
+    {
+        return itemList;
+    }
      
 
 }
