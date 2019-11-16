@@ -62,9 +62,11 @@ contract WeGrow {
         // address owner;
         // uint price;
         // bool forSale;
-        returns(string memory, string memory, address, uint, bool)
+
+        // string sellerName
+        returns(string memory, string memory, address, uint, bool, string memory)
     {
-        return(itemList[index].name, itemList[index].location, itemList[index].owner, itemList[index].price, itemList[index].forSale);
+        return(itemList[index].name, itemList[index].location, itemList[index].owner, itemList[index].price, itemList[index].forSale, growerList[itemList[index].owner].name);
     }
 
     function listMyItemIDs()
