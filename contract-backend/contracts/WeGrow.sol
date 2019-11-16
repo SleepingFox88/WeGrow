@@ -62,20 +62,6 @@ contract WeGrow {
     // View Functions
     //
 
-    // function listAllOffers()
-    //     public
-    //     view
-    //     returns(Item[] memory)
-    // {
-
-    //     Item[] memory itemArray;
-
-    //     for(uint i = 0; i < itemCount; i++){
-    //         itemArray[i] = itemList[i];
-    //     }
-    //     return itemArray;
-    // }
-
     function getItem(uint index)
         public
         view
@@ -90,6 +76,34 @@ contract WeGrow {
     {
         return(itemList[index].name, itemList[index].location, itemList[index].owner, itemList[index].price, itemList[index].forSale);
     }
+
+    function getMyItemList()
+        public
+        view
+        returns(uint[] memory)
+    {
+
+        // get number of owned items
+        uint numOfOwned = 0;
+        for(uint i = 0; i < itemCount; i++){
+            if(itemList[i].owner == msg.sender){
+                numOfOwned++;
+            }
+        }
+
+        //declare array the size of "numOfOwned"
+        uint[] memory listOfMyItems = new uint[](numOfOwned);
+        uint count = 0;
+        for(uint i = 0; i < itemCount; i++){
+            if(itemList[i].owner == msg.sender){
+                listOfMyItems[count] = i;
+                count++;
+            }
+        }
+        return listOfMyItems;
+    }
+
+
      
 
 }
