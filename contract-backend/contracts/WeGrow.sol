@@ -24,12 +24,6 @@ contract WeGrow {
     mapping (uint => Item) itemList;
     mapping (address => Grower) growerList;
 
-
-
-    //
-    // Events - publicize actions to external listeners
-    //
-
     // 
     // Modifiers
     // 
@@ -37,14 +31,10 @@ contract WeGrow {
     modifier onlyGrower{require(growerList[msg.sender].account == msg.sender, "Grower is not registered"); _;}
 
     //
-    // Constructor
-    //
-
-    //
     // General Functions
     //
 
-    function addItem(string memory _name, uint _price)
+    function offerItem(string memory _name, uint _price)
         public
         onlyGrower()
     {
@@ -52,7 +42,7 @@ contract WeGrow {
         itemCount += 1;
     }
 
-    function addGrower(string memory _name, string memory _location)
+    function registerAsGrower(string memory _name, string memory _location)
         public
     {
         growerList[msg.sender] = Grower({name: _name, location: _location, account: msg.sender});
@@ -62,7 +52,7 @@ contract WeGrow {
     // View Functions
     //
 
-    function getItem(uint index)
+    function viewItem(uint index)
         public
         view
 
@@ -77,7 +67,7 @@ contract WeGrow {
         return(itemList[index].name, itemList[index].location, itemList[index].owner, itemList[index].price, itemList[index].forSale);
     }
 
-    function getMyItemList()
+    function listMyItemIDs()
         public
         view
         returns(uint[] memory)
@@ -91,8 +81,9 @@ contract WeGrow {
             }
         }
 
-        //declare array the size of "numOfOwned"
+        //declare an array of type "uint" the size of "numOfOwned"
         uint[] memory listOfMyItems = new uint[](numOfOwned);
+
         uint count = 0;
         for(uint i = 0; i < itemCount; i++){
             if(itemList[i].owner == msg.sender){
@@ -102,8 +93,4 @@ contract WeGrow {
         }
         return listOfMyItems;
     }
-
-
-     
-
 }
