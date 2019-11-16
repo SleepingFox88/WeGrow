@@ -1,8 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./Ownable.sol";
-
-contract WeGrow is Ownable {
+contract WeGrow {
 
     //
     // State variables
@@ -64,12 +62,33 @@ contract WeGrow is Ownable {
     // View Functions
     //
 
-    function listAllOffers()
+    // function listAllOffers()
+    //     public
+    //     view
+    //     returns(Item[] memory)
+    // {
+
+    //     Item[] memory itemArray;
+
+    //     for(uint i = 0; i < itemCount; i++){
+    //         itemArray[i] = itemList[i];
+    //     }
+    //     return itemArray;
+    // }
+
+    function getItem(uint index)
         public
         view
-        returns(mapping)
+
+        // these are the properties of "Item" type that need to be returned
+        // string name;
+        // string location;
+        // address owner;
+        // uint price;
+        // bool forSale;
+        returns(string memory, string memory, address, uint, bool)
     {
-        return itemList;
+        return(itemList[index].name, itemList[index].location, itemList[index].owner, itemList[index].price, itemList[index].forSale);
     }
      
 
