@@ -19,10 +19,13 @@ contract WeGrow {
 
     uint public itemCount;
     mapping (uint => Item) public itemList;
+    mapping (uint => Grower) public GrowerList;
     mapping (address => string) public location;
 
+    
 
-}
+
+
     //
     // State variables
     //
@@ -42,6 +45,16 @@ contract WeGrow {
     //
     // General Functions
     //
+
+    function addItem(){}
+
+    function addGrower(string memory _name, string memory _location)
+    public
+    {
+        name = _name;
+        location = _location;
+        account = message.sender;
+    }
 
     //
     // View Functions
