@@ -100,6 +100,7 @@ contract WeGrow {
                 count++;
             }
         }
+        return listOfMyItems;
     }
 
 
