@@ -20,13 +20,12 @@ contract WeGrow is Ownable {
         address owner;
         uint price;
         bool forSale;
-        int itemCount;
     } 
 
     uint public itemCount;
     mapping (uint => Item) public itemList;
-    mapping (uint => Grower) public GrowerList;
-    mapping (address => string) public location;
+    mapping (address => Grower) public growerList;
+
 
 
     //
@@ -37,6 +36,8 @@ contract WeGrow is Ownable {
     // Modifiers
     // 
 
+    modifier onlyGrower{require(growerList[msg.sender].account == msg.sender, "Grower is not registered"); _;}
+
     //
     // Constructor
     //
@@ -45,18 +46,31 @@ contract WeGrow is Ownable {
     // General Functions
     //
 
-    function addItem(){}
+    function addItem(string memory _name, uint _price)
+        public
+        onlyGrower()
+    {
+        itemList[itemCount] = Item({name: _name, location: growerList[msg.sender].location, owner: msg.sender, price: _price, forSale: true});
+
+    }
 
     function addGrower(string memory _name, string memory _location)
-    public
+        public
     {
-        name = _name;
-        location = _location;
-        account = message.sender;
+        growerList[msg.sender] = Grower({name: _name, location: _location, account: msg.sender});
     }
 
     //
     // View Functions
     //
+
+    function listAllOffers()
+        public
+        view
+        returns(mapping)
+    {
+        return itemList;
+    }
+     
 
 }
