@@ -1,0 +1,92 @@
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {   .button {
+  background-color: #4CAF50; /* Green */
+  height: 40px;
+  width: 40px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+  .searchimage {
+   height: 40px;
+   width: 40px;
+
+  }
+  .searchbutton:hover {
+   background-color: #4CAF50;
+   color: white;
+  } }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {   .button {
+  background-color: #4CAF50; /* Green */
+  height: 20px;
+  width: 20px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+  .searchimage {
+   height: 40px;
+   width: 40px;
+
+  }
+  .searchbutton:hover {
+   background-color: #4CAF50;
+   color: white;
+  } }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {   .button {
+  background-color: #4CAF50; /* Green */
+  height: 40px;
+  width: 40px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+  .searchimage {
+   height: 40px;
+   width: 40px;
+
+  }
+  .searchbutton:hover {
+   background-color: #4CAF50;
+   color: white;
+  }}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {   .button {
+  background-color: #4CAF50; /* Green */
+  height: 40px;
+  width: 40px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+  .searchimage {
+   height: 40px;
+   width: 40px;
+
+  }
+  .searchbutton:hover {
+   background-color: #4CAF50;
+   color: white;
+  }}
