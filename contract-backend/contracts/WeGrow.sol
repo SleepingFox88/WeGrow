@@ -67,9 +67,16 @@ contract WeGrow is Ownable {
     function listAllOffers()
         public
         view
-        returns(mapping)
+        
+        // these are the properties of "Item" type that need to be returned
+        // string name;
+        // string location;
+        // address owner;
+        // uint price;
+        // bool forSale;
+        returns(string memory, string memory, address, uint, bool)
     {
-        return itemList;
+        return(itemList[index].name, itemList[index].location, itemList[index].owner, itemList[index].price, itemList[index].forSale);
     }
      
 
