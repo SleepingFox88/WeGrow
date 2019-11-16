@@ -64,7 +64,21 @@ contract WeGrow is Ownable {
     // View Functions
     //
 
-    function listAllOffers()
+    // function listAllOffers()
+    //     public
+    //     view
+    //     returns(Item[] memory)
+    // {
+
+    //     Item[] memory itemArray;
+
+    //     for(uint i = 0; i < itemCount; i++){
+    //         itemArray[i] = itemList[i];
+    //     }
+    //     return itemArray;
+    // }
+
+    function getItem(uint index)
         public
         view
         
