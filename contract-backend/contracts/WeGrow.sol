@@ -1,6 +1,12 @@
-pragma solidity >=0.4.21 <0.6.0;
+pragma solidity ^0.5.0;
 
-contract WeGrow {
+import "./Ownable.sol";
+
+contract WeGrow is Ownable {
+
+    //
+    // State variables
+    //
 
     struct Grower { 
         string name;
@@ -22,13 +28,6 @@ contract WeGrow {
     mapping (uint => Grower) public GrowerList;
     mapping (address => string) public location;
 
-    
-
-
-
-    //
-    // State variables
-    //
 
     //
     // Events - publicize actions to external listeners
